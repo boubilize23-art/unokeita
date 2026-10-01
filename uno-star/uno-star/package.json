@@ -1,0 +1,31 @@
+{
+  "name": "uno-star",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "UNO STACK — jeu de cartes multijoueur temps réel (2 à 7 joueurs) avec moteur de règles de cumul +2/+4/+8/+10",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n SERVEUR,CLIENT -c magenta,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace @uno-star/server",
+    "dev:client": "npm run dev --workspace @uno-star/client",
+    "build": "npm run build --workspace @uno-star/client",
+    "start": "npm run start --workspace @uno-star/server",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "smoke": "node scripts/smoke.mjs",
+    "shots": "node scripts/screenshot.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "socket.io-client": "^4.8.1",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

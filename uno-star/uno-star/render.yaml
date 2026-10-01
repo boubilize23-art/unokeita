@@ -1,0 +1,20 @@
+// Déploiement du serveur temps réel (Socket.IO) — plan gratuit Render.
+// https://render.com/docs  —  "New > Blueprint"  →  choisir ce dépôt.
+services:
+  - type: web
+    name: uno-stack-realtime
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build --workspace @uno-star/client
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      - key: PORT
+        value: '3001'
+      - key: CLIENT_ORIGIN
+        sync: false # ex: https://uno-stack.vercel.app
+      - key: VITE_WS_URL
+        sync: false # renseignez l'URL publique de ce service

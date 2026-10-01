@@ -1,0 +1,17 @@
+{
+  "name": "@uno-star/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./constants": "./src/constants.js",
+    "./cards": "./src/cards.js",
+    "./rules": "./src/rules.js",
+    "./room": "./src/room.js"
+  },
+  "scripts": {
+    "test": "vitest run"
+  }
+}
